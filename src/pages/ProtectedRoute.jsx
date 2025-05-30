@@ -1,0 +1,1 @@
+return user ? children : <Navigate to="/" />
