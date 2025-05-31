@@ -9,6 +9,7 @@ import Comunity from './pages/Comunity';
 import CommingSoon from './pages/CommingSoon';
 import Social from './pages/Social';
 import MainLayout from './components/MainLayout';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route 
           path='/*'
           element={
+            <ProtectedRoute>
             <MainLayout>
               <Routes>
                 <Route path="/home" element={<Home />} />
@@ -31,6 +33,7 @@ function App() {
                 <Route path="/social" element={<Social />} />
               </Routes>
             </MainLayout>
+            </ProtectedRoute>
           }/>        
       </Routes>
     </Router>
