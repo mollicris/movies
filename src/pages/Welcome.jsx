@@ -4,12 +4,16 @@ import fondImage from '../assets/welcomefond.svg'
 import backgroundImage from '../assets/imgwelcome.svg'
 import WatchIcon from '../assets/icons/folder.svg'
 import { useAuth } from '../components/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const Welcome = () => {
   const { user, login, logout } = useAuth();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if(user) {
+      navigate('/home');
       console.log("Sesion iniciada", user.displayName);
       console.log('sesion iniciada', user.displayName)
       console.log('sesion iniciada', user.photoURL)

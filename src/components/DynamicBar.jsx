@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Box, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useAuth } from './AuthContext';
+import { useAuth } from '../components/AuthContext';
 import Banner from '../assets/banner.svg';
 
 

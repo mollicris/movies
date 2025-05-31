@@ -10,7 +10,7 @@ import  heart  from "../assets/icons/heart.svg";
 import  trendingUp  from "../assets/icons/trending-up.svg";
 import  users  from "../assets/icons/users.svg";
 import  logoutIcon  from "../assets/icons/log-out.svg";
-import { useAuth } from './AuthContext';
+import { useAuth } from '../components/AuthContext';
 import { useNavigate } from 'react-router-dom'
 
 const SideBar = () => {
@@ -27,7 +27,7 @@ const SideBar = () => {
     	{ text: "Social", path: "/social" ,imageIcon:comment},
     ]
 		const handleLogout = () => {
-				logout();
+			logout();
 		}
 
   return (
@@ -65,27 +65,27 @@ const SideBar = () => {
 				<List>
 					{navItems.map((item) => (
 						<ListItem 
-							button 
+							 
 							component={Link} 
 							to={item.path} 
 							key={item.text}
 							sx={{
-               color: "#ffffff50" ,
-               display:'flex',
-               gap:'1rem',
-               '&:hover':{
-                backgroundColor:'#21201E',
-                color:'white'
+               				color: "#ffffff50" ,
+               				display:'flex',
+               				gap:'1rem',
+               				'&:hover':{
+                			backgroundColor:'#21201E',
+                			color:'white'
                }
               }}>
 							
-							<img 
-								src={item.imageIcon} 
-								alt={item.text} 
-								style={{ 
-									width: '15px', 
-									height: '15px',
-									}} />
+			<img 
+							src={item.imageIcon} 
+							alt={item.text} 
+							style={{ 
+								width: '15px', 
+								height: '15px',
+								}} />
 
 							<ListItemText primary={item.text} />
 						</ListItem>
@@ -113,15 +113,13 @@ const SideBar = () => {
 								onClick={handleLogout}
 								/>
 
-						{!user?(
-            navigate('/')
-         			):(
+						{!user?(navigate('/')):(
            			<ListItemText 
            			button
            			onClick={handleLogout}
            
            			primary='Log Out'/>
-         )}
+        )}
 					</ListItem>
 				</List>
 

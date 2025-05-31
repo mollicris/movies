@@ -2,16 +2,17 @@ import { useState ,createContext, useEffect, useContext } from 'react'
 import {auth,provider} from '../firebase'
 import { signInWithPopup, signOut } from 'firebase/auth'
 
-const AuthContext = createContext()
+const AuthContext = createContext();
 
-//Exportar el proveedor
 export const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
+  
 
   const login = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
+      
       console.log("Usuario logueado:", result.user);
       console.log("Usuario logueado:", result.user.displayName);
       
@@ -35,7 +36,7 @@ export const AuthProvider = ({children}) => {
       if (user) {
         setUser(user);
         console.log("Usuario logueado:", user.displayName);
-      } else {
+        } else {
         setUser(null);
         console.log("No hay usuario logueado");
       }

@@ -25,7 +25,7 @@ const MainLayout = (children) => {
             height:'200px'
           }}
         >
-          {children}
+          
           <Outlet />
         </Box>
       </Box>
