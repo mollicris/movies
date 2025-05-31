@@ -115,9 +115,7 @@ const SideBar = () => {
 
 						{!user?(navigate('/')):(
            			<ListItemText 
-           			button
            			onClick={handleLogout}
-           
            			primary='Log Out'/>
         )}
 					</ListItem>

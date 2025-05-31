@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Sidebar from "./SideBar";
 import DynamicBar   from "./DynamicBar";
 import { Outlet } from "react-router-dom";
-const MainLayout = (children) => {
+const MainLayout = ({ children }) => {
   return (
     <Box sx={{ 
         display:'flex',
@@ -22,10 +22,11 @@ const MainLayout = (children) => {
             flex: 1,
             overflowY: "auto", 
             backgroundColor: "#1E1E1E",
-            height:'200px'
+            height: 'calc(100vh - altura_de_DynamicBar)'
+            //height:'200px'
           }}
         >
-          
+          {children}
           <Outlet />
         </Box>
       </Box>

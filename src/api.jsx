@@ -1,4 +1,5 @@
 //import { useState } from 'react';
+import { Movie } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 
 const useMoviesData = () => {
@@ -31,8 +32,7 @@ const useMoviesData = () => {
         }
     }
     return {
-       /* events :data?._embedded?.events || [],
-        page :data.page || {},*/
+        movies: data.results || [],
         loading,
         error,
         fetchMovies
