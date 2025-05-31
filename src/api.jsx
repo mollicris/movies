@@ -9,7 +9,7 @@ const useMoviesData = () => {
     
     const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
     const options = {
-    smethod: 'GET',
+    method: 'GET',
     headers: {
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OTk4YTcwZjI1ZTk3M2JjOTFlNDk0OGQ2NTY3NWY0MCIsIm5iZiI6MTY3Mjk0NTIyMC45NzMsInN1YiI6IjYzYjcxZTQ0NDMyNTBmMDA4MmU4ZDY4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WFo_QXDB5rrwFbbampruLihmNC0DRHzrzBK6nkGf8DA'
@@ -70,6 +70,72 @@ const useTrendingMovies = () => {
     }
 
     export { useTrendingMovies };
+
+
+const usePopularMovies = () => {
+    const [data, setData] = useState([]);
+
+    const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+    const options = {
+        method: 'GET',
+        headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OTk4YTcwZjI1ZTk3M2JjOTFlNDk0OGQ2NTY3NWY0MCIsIm5iZiI6MTY3Mjk0NTIyMC45NzMsInN1YiI6IjYzYjcxZTQ0NDMyNTBmMDA4MmU4ZDY4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WFo_QXDB5rrwFbbampruLihmNC0DRHzrzBK6nkGf8DA'
+  }
+};
+
+const fetchMovies = async () => {
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const result = await response.json();
+    setData(result || []);
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+  }
+};
+
+return {
+    movies: data.results || [],
+    fetchMovies
+};
+}
+export { usePopularMovies };
+
+
+const useComingSoonMovies = () => {
+    const [data, setData] = useState([]);
+
+    const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+    const options = {
+     method: 'GET',
+    headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OTk4YTcwZjI1ZTk3M2JjOTFlNDk0OGQ2NTY3NWY0MCIsIm5iZiI6MTY3Mjk0NTIyMC45NzMsInN1YiI6IjYzYjcxZTQ0NDMyNTBmMDA4MmU4ZDY4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WFo_QXDB5rrwFbbampruLihmNC0DRHzrzBK6nkGf8DA'
+    }
+    };
+    const fetchMovies = async () => {
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result || []);
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching movies:', error);
+    }
+}
+return {
+    movies: data.results || [],
+    fetchMovies
+};
+}
+export { useComingSoonMovies };
 
 const useFavoritesMovies = () => {
     const [data, setData] = useState([]);
