@@ -125,7 +125,7 @@ const useComingSoonMovies = () => {
         }
         const result = await response.json();
         setData(result || []);
-        console.log(data);
+        console.log(result);
     } catch (error) {
         console.error('Error fetching movies:', error);
     }

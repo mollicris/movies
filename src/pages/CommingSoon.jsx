@@ -10,7 +10,7 @@ const CommingSoon = () => {
 
   useEffect(() => {
     fetchMovies();
-  }, [fetchMovies]);
+  }, []);
 
   return (
     <div>
