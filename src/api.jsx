@@ -60,7 +60,7 @@ const useTrendingMovies = () => {
             const results = await response.json();
             setData(results);
         } catch (error) {
-            console.error('Error fetching movies:', error);
+            console.error('Error fetching movies :', error);
         }
     }
         return {
